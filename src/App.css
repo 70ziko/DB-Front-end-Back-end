@@ -1,0 +1,134 @@
+.root-layout{
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+.root-layout header{
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
+  font-size: 36px;}
+
+.root-layout header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.root-layout header nav a{
+  text-decoration: unset;
+  color: white;
+  padding: 10px;
+}
+.root-layout header nav a.active{
+  background-color: #002233;
+}
+main {
+  margin-top: 70px;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+  color: white;
+}
+.error a{
+  text-decoration: unset;
+  color: white;
+  font-weight: 400;
+}
+
+
+.home{
+  display: grid;
+  grid-template-columns: 50% auto; 
+  grid-template-rows: 500px;
+  padding: 30px;
+  
+}
+.home .homer{
+  display: flex;
+  justify-content: center;
+}
+ 
+
+.login{
+  margin-top: 6em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+Form{
+  padding: 5%;
+  background-image: url('./assets/layered-steps-haikei.png');
+  background-size: cover;
+  backdrop-filter: blur(10px);
+
+}
+Form label{
+  display: flex;
+  flex-direction: column;
+  gap: 20px 20px;
+  font-size: 24px;
+  margin-top: 20px;
+  filter: blur(0);
+}
+Form label input {
+  outline: none;
+  width: 350px;
+  font-size: 24px;
+  padding: 5px;
+  opacity: 0.9;
+}
+Form button{
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 400;
+  padding: 5px;
+  background-color: #F7770F;
+  border: 0;
+  color: white;
+  transition: 0.4s all ease;
+}
+form button:hover{
+  cursor: pointer;
+  background-color: #cb610b;
+}
+
+.signup{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.signup Form label{
+  display: flex;
+  flex-direction: column;
+  gap: 5px 5px;
+  font-size: 24px;
+  margin-top: 20px;
+  filter: blur(0);
+}
+
+
+
+.timer {
+  width: 100%;
+}
+
+.timer .animation{
+  width: 400px;
+  height: 400px;
+}
+iframe{
+  border: none;
+  width: 400px;
+  height: 400px;
+}
