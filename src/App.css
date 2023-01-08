@@ -8,7 +8,7 @@
   display: flex;
   justify-content: end;
   flex-direction: row;
-  font-size: 36px;
+  font-size: 2.5rem;
   height: 10vh;
 }
 
@@ -24,13 +24,11 @@
 }
 .root-layout header nav a.active{
   background-color: #002233;
+  border-radius: 9px;
 }
-main {
-  margin-top: 70px;
-  height: calc(78vh);
-
-
-
+main { 
+  margin-top: 4em;
+  height: calc(68vh);
 }
 
 .error {
@@ -61,8 +59,11 @@ main {
 }
  
 
+.signup{
+  height: 500px;
+}
+
 .login{
-  margin-top: 6em;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -71,39 +72,51 @@ main {
 }
 Form{
   padding: 5%;
-  background-image: url('./assets/layered-steps-haikei.png');
-  background-size: cover;
-  backdrop-filter: blur(10px);
-
+  backdrop-filter: blur(1px);
+  background-image: url('./assets/circle.png');
+}
+Form:before {
+  content: "";
+  position: absolute;
+  width : 100%;
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+  filter        : blur(23px);
+  -moz-filter   : blur(10px);
+  -webkit-filter: blur(10px);
+  -o-filter     : blur(10px);
+  transition        : all 2s linear;
+  -moz-transition   : all 2s linear;
+  -webkit-transition: all 2s linear;
+  -o-transition     : all 2s linear;
 }
 Form label{
   display: flex;
   flex-direction: column;
-  gap: 20px 20px;
-  font-size: 24px;
-  margin-top: 20px;
-  filter: blur(0);
+  gap: 10px 10px;
+  font-size: 2rem;
+  margin-top: 10px;
 }
 Form label input {
   outline: none;
   width: 350px;
-  font-size: 24px;
-  padding: 5px;
+  font-size: 2rem;
+  padding: 3px;
   opacity: 0.9;
 }
 Form button{
-  margin-top: 10px;
-  font-size: 26px;
+  font-size: 2rem;
   font-weight: 400;
   padding: 5px;
-  background-color: #F7770F;
+  background-color: #002233;
   border: 0;
   color: white;
   transition: 0.4s all ease;
 }
 form button:hover{
   cursor: pointer;
-  background-color: #cb610b;
+  background-color: #014567;
 }
 
 .signup{
@@ -117,7 +130,7 @@ form button:hover{
   display: flex;
   flex-direction: column;
   gap: 5px 5px;
-  font-size: 24px;
+  font-size: 2rem;
   margin-top: 20px;
   filter: blur(0);
 }
@@ -150,11 +163,11 @@ iframe{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 2em;
   font-weight: 400;
   height: 60px;
-  background-color: #002233;
-  border-bottom: 3px solid white;
+
+
 }
 .timer .mains{
   display: flex;
@@ -167,27 +180,24 @@ iframe{
   grid-template-columns: auto auto auto;
   grid-auto-rows: 40px;
   gap: 5px 5px;
-  border-right: 5px solid white;
- 
   overflow: scroll;
 
 }
 .timer .center{
   width: 45%;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center;
+  background-size: cover;
 }
 .timer .right{
   width:35%;
-  border-left: 5px solid white;
-
 
 }
 .little-time{
   padding: 5px;
 }
 .timer .mains .center span{
-  font-size: 40px;
+  font-size: 4rem;
 }

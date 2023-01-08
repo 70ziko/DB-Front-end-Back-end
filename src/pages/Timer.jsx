@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
+import Stats from "../components/Stats";
 export default function Timer() {
 
-    const [scrambles, setscrambles] = useState(''); // scramble 
+    const [scramble, setscramble] = useState(null); // scramble 
     const [isRunning, setIsRunning] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0);
     const [time, setTime] = useState(0);
-    const [times, setTimes] = useState([]);
+    const [times, setTimes] = useState([]); // array of all times
+    const [json, setjson] = useState({"id":1,"scramble":scramble,"time":time/1000});
+    const [id, setid] = useState(2);
+
+
 
 
     const minutes = Math.floor(time / 60000);
@@ -28,16 +33,16 @@ export default function Timer() {
             scramble += move + ' ' // adding move to our scramble 
             lastAxis = move[0] // setting last axis
         }
-        setscrambles(scramble) // setting scramble to my var Hook
+        setscramble(scramble) // setting scramble to my var Hook
     }
 
 
 
     useEffect(() => { // new scramble is generating when timer is stopped
-        if (!isRunning) {
-            generateScramble()
-            console.log(times)
-        }
+        if(!isRunning) {
+            generateScramble( )
+        } 
+    
     }, [isRunning]);
 
 
@@ -48,13 +53,13 @@ export default function Timer() {
             setTime(elapsedTime)
             interval = setInterval(() => {
                 setElapsedTime((prevElapsedTime) => prevElapsedTime + 10);
-
             }, 10)
         } else if (!isRunning && elapsedTime !== 0) {
             clearInterval(interval)
             setTime(elapsedTime)
             setTimes(prevTimes => [...prevTimes, time])
-
+            //setjson({ "id": id, "scramble": scramble, "time": elapsedTime / 1000 })
+            //setid(times.length + 1)
         }
         return () => clearInterval(interval)
     }, [isRunning, elapsedTime]);
@@ -62,6 +67,7 @@ export default function Timer() {
     const handleKeyDown = event => {
         if (event.key === ' ') {
             setIsRunning((prevIsRunning) => !prevIsRunning);
+
         }
         if (!isRunning) {
             setElapsedTime(0);
@@ -76,25 +82,24 @@ export default function Timer() {
     });
 
 
-    const showtimes = times.map(time => (
-      //  <h1 key={time}></h1>
-        <div className="little-time">
+    const showtimes = times.map((time, index) => (
+        <div className="little-time" key={index}>
             {Math.floor(time / 60000)}:{Math.floor((time % 60000) / 1000)}:{Math.floor((time % 1000) / 10)}
         </div>
     ))
 
 
 
-    //  <p>{scrambles}</p>
-    //{!minutes ? <h1>{seconds}.{milliseconds}</h1> : <h1>{minutes}:{seconds}.{milliseconds}</h1>}
-    //{showtimes}
+
     return (
         <div className="timer">
-            <div className="scramble"><span>{scrambles}</span></div>
+            <div className="scramble"><span>{scramble}</span></div>
             <div className="mains">
                 <div className="left">{showtimes}</div>
                 <div className="center">{!minutes ? <span>{seconds}.{milliseconds}</span> : <span>{minutes}:{seconds}.{milliseconds}</span>}</div>
-                <div className="right"></div>
+                <div className="right">
+                    <Stats times={times} />
+                </div>
             </div>
 
         </div>
