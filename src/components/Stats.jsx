@@ -5,6 +5,10 @@ export default function Stats(props) {
     const [average, setaverage] = useState(0.00);
     const [best,setbest] = useState(null);
     const handleaverageClick = () => {
+        if(data.length === 0) {
+            setbest(null)
+            setaverage(null)
+        }
         let sum = 0;
         let arr = [];
         if(data.length >= 5 ){
@@ -23,7 +27,6 @@ export default function Stats(props) {
             if(data[i] < best) setbest(data[i])
         }
       }
-
       useEffect(() => {
         handleaverageClick()
         thebesttime()

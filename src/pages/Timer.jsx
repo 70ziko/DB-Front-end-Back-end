@@ -7,8 +7,8 @@ export default function Timer() {
     const [elapsedTime, setElapsedTime] = useState(0);
     const [time, setTime] = useState(0);
     const [times, setTimes] = useState([]); // array of all times
-    const [json, setjson] = useState({"id":1,"scramble":scramble,"time":time/1000});
-    const [id, setid] = useState(2);
+    const [json, setjson] = useState({ "id": 1, "scramble": scramble, "time": time / 1000 });
+    const [id, setid] = useState(1);
 
 
 
@@ -39,10 +39,10 @@ export default function Timer() {
 
 
     useEffect(() => { // new scramble is generating when timer is stopped
-        if(!isRunning) {
-            generateScramble( )
-        } 
-    
+        if (!isRunning) {
+            generateScramble()
+        }
+
     }, [isRunning]);
 
 
@@ -81,23 +81,26 @@ export default function Timer() {
         };
     });
 
-
     const showtimes = times.map((time, index) => (
         <div className="little-time" key={index}>
             {Math.floor(time / 60000)}:{Math.floor((time % 60000) / 1000)}:{Math.floor((time % 1000) / 10)}
         </div>
     ))
 
-
+    const handleDelete = () => {
+        setTimes([])
+    }
 
 
     return (
         <div className="timer">
             <div className="scramble"><span>{scramble}</span></div>
             <div className="mains">
-                <div className="left">{showtimes}</div>
-                <div className="center">{!minutes ? <span>{seconds}.{milliseconds}</span> : <span>{minutes}:{seconds}.{milliseconds}</span>}</div>
+                <div className="left"> {showtimes} </div>
+                <div className="center">{!minutes ? <span>{seconds}.{milliseconds}</span> : <span>{minutes}:{seconds}.{milliseconds}</span>}
+                </div>
                 <div className="right">
+                    <h3 className="delete-times" onClick={handleDelete}>Delete times</h3>
                     <Stats times={times} />
                 </div>
             </div>

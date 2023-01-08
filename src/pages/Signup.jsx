@@ -21,7 +21,6 @@ export default function Signup() {
                 </label>
                 <button>Sign up</button>
                 {credentials && credentials.error && <p>{credentials.error}!!!</p>}
-
             </Form>
     </div>
   )

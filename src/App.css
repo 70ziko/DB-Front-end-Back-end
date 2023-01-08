@@ -201,3 +201,16 @@ iframe{
 .timer .mains .center span{
   font-size: 4rem;
 }
+
+.right .delete-times {
+  border-radius: 9px;
+  border: 3px solid white;
+  padding: 5px;
+  transition: 0.5s all ease;
+  width: 99px;
+}
+.right .delete-times:hover{
+  cursor: pointer;
+  background-color: #002233;
+
+}
