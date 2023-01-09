@@ -47,17 +47,21 @@ main {
 
 
 .home{
-  display: grid;
-  grid-template-columns: 50% auto; 
-  grid-template-rows: 500px;
+  display: flex;
+  flex-direction: row;
   padding: 30px;
   
 }
 .home .homer{
+  width: 50%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 30em;
 }
- 
+.home .homel{
+  width: 50%;
+}
 
 .signup{
   height: 500px;
@@ -146,9 +150,10 @@ form button:hover{
   height: 400px;
 }
 iframe{
+
   border: none;
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  height: 80%;
 }
 
 
